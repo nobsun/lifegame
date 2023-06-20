@@ -1,0 +1,92 @@
+name:                lifegame
+version:             0.1.0.0
+github:              "nobsun/lifegame"
+license:             BSD3
+author:              "Nobuo Yamashita"
+maintainer:          "nobsun@sampou.org"
+copyright:           "Copyright: (c) 2023 Nobuo Yamashita"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Experiment
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/nobsun/lifegame#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- unicode-show
+- bytestring
+- utf8-string
+- time
+- hspec
+- main-tester
+- doctest
+# - array
+# - containers
+# - free
+# - recursion-schemes
+
+language: GHC2021
+
+default-extensions:
+- LambdaCase
+- MultiWayIf
+- NPlusKPatterns
+- OverloadedStrings
+- NoStarIsType
+- TypeFamilyDependencies
+- TypeInType
+- UndecidableInstances
+
+ghc-options:
+- -Wall
+- -Wno-unticked-promoted-constructors
+- -Wno-unused-imports
+- -Wno-unused-top-binds
+- -Wno-unused-top-binds
+- -Wno-orphans
+
+library:
+  source-dirs: src
+
+executables:
+  lifegame:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -rtsopts
+    # - -threaded
+    # - -with-rtsopts=-N
+    dependencies:
+    - lifegame
+
+tests:
+  lifegame-test:
+    main:                spec.hs
+    source-dirs:         test
+    # ghc-options:
+    # - -threaded
+    # - -rtsopts
+    # - -with-rtsopts=-N
+    dependencies:
+    - lifegame
+    - hspec
+    - main-tester
+
+  lifegame-doctest:
+    main:                doctests.hs
+    source-dirs:         test
+    # ghc-options:
+    # - -threaded
+    # - -rtsopts
+    # - -with-rtsopts=-N
+    dependencies:
+    - lifegame
+    - doctest

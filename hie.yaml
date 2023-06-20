@@ -1,0 +1,16 @@
+cradle:
+  stack:
+    - path: "./test/spec.hs"
+      component: "lifegame:test:lifegame-test"
+  
+    - path: "./test/LibSpec.hs"
+      component: "lifegame:test:lifegame-test"
+  
+    - path: "./test/doctests.hs"
+      component: "lifegame:test:lifegame-doctest"
+
+    - path: "./app/Main.hs"
+      component: "lifegame:exe:lifegame"
+
+    - path: "./src/Lib.hs"
+      component: "lifegame:lib"
