@@ -121,5 +121,3 @@ genUniv css = foldr phi [] $ zip (range (w, h)) (concat css)
 range :: Dim -> [Cell]
 range (w, h) = [ (i, j) | j <- [0 .. pred h]
                         , i <- [0 .. pred w]]
-
-
